@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.cc:\users\asbjo\onedrive\skrivebord\mauiapp\drikkepengeberegner\app.xaml.cs
+c:\users\asbjo\onedrive\skrivebord\mauiapp\drikkepengeberegner\app.xaml
+om/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrikkepengeBeregner.MainPage">
+
+<ContentPage.Resources>
+    <Color x:Key="Hvid">AliceBlue</Color>
+    <Color x:Key="Blå">#1D63DC</Color>
+    <Color x:Key="Sort">#000000</Color>
+
+
+</ContentPage.Resources>
+<Grid
+        RowDefinitions="*,*,*,*,*,*"
+        ColumnDefinitions="1*,2*"
+        BackgroundColor="{StaticResource Tertiary}"
+        >
+    <Button
+            Clicked="Button_Clicked"
+            
+            
+            />
+    <Button
+            Grid.Column="0"
+            Grid.Row="0"
+            Text="Beløb"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="10"
+            BackgroundColor="{StaticResource Blå}"
+            />
+    <!-- <Button
+            Grid.Column="0"
+            Grid.Row="1"
+            Text="Indtast Beløb"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="0"
+            BackgroundColor="{StaticResource Blå}"
+            />
+        -->
+    <Label x:Name="indtast"
+             Grid.Column="1"
+            Grid.Row="0"
+            Margin="10"
+            BackgroundColor="{StaticResource Hvid}"
+            />
+    <Entry x:Name="entryyy"
+       Grid.Column="1"
+            Grid.Row="0"   
+               TextColor="{StaticResource Sort}"
+               Placeholder="Indtast Beløb"
+               FontSize="55"
+                Keyboard="Numeric"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               TextChanged="entryyy_TextChanged"
+               Completed="Beregn_Pressed"
+               />
+    <!-- TextChanged="OnEntryTextChanged"
+       Completed="OnEntryCompleted" -->
+    <Button
+            Grid.Column="0"
+            Grid.Row="1"
+            Text="% Penge Til Drikkepenge"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="0"
+            BackgroundColor="{StaticResource Blå}"
+            />
+    <Button
+            Grid.Column="1"
+            Grid.Row="1"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="10"
+            BackgroundColor="{StaticResource Blå}"
+            />
+    <Slider x:Name="Sliding"
+            Maximum="20"
+                Minimum="0"
+            Grid.Column="1"
+            Grid.Row="1"
+                ValueChanged="Sliding_ValueChanged" 
+                Margin="20,50,20,0"
+                VerticalOptions="Center"
+                />
+    <Label 
+            x:Name="lab"
+            Text="%"
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            Margin="25"
+            FontSize="44"
+            TextColor="{StaticResource Sort}"
+            />
+
+
+
+
+    <Button x:Name="Beregn"
+            Grid.Column="0"
+            Grid.Row="2"
+            Text="Beregn"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="10"
+            BackgroundColor="{StaticResource Blå}"
+                Pressed="Beregn_Pressed"
+            />
+    <Button x:Name="slutbeløb"
+            Grid.Column="1"
+            Grid.Row="2"
+            Text="regning"
+            TextColor="{StaticResource Sort}"
+            CornerRadius="10"
+            Margin="10"
+            BackgroundColor="{StaticResource Blå}"
+            />
+</Grid>
+

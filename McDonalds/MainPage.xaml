@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="McDonalds.MainPage">
+    <ContentPage.Resources>
+        <Color x:Key="Hvid">AliceBlue</Color>
+        <Color x:Key="Blå">#1D63DC</Color>
+        <Color x:Key="Sort">#27251F</Color>
+        <Color x:Key="Grøn">#27742d</Color>
+        <Color x:Key="Gul">#FFC72C</Color>
+        <Color x:Key="Rød">#DA291C</Color>
+    </ContentPage.Resources>
+    <Grid
+         RowDefinitions="*,*,*,*,*,*,*,*,*,*"
+        ColumnDefinitions="*,*"
+        BackgroundColor="{StaticResource Gul}"
+        >
+        <Label
+            Grid.ColumnSpan="2"
+            Text="Logo"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="Pink"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            
+            
+            />
+        <Image Source="dotnet_bot.png"
+               ScaleX="-7" 
+               Grid.ColumnSpan="2"
+               />
+
+        <Entry x:Name="KmL"
+            Grid.Column="1"
+            Grid.Row="1"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Rød}"
+            HorizontalTextAlignment="Center"
+            Placeholder="Km/L"
+            PlaceholderColor="{StaticResource Hvid}"
+            TextChanged="KmL_TextChanged"
+
+             />
+        <Entry x:Name="Distance"
+            Grid.Column="0"
+            Grid.Row="1"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Rød}"
+            HorizontalTextAlignment="Center"
+            Placeholder="Distance (Km)"
+            PlaceholderColor="{StaticResource Hvid}"
+            TextChanged="Distance_TextChanged"
+               />
+        <Entry x:Name="Brandstofspris"
+            Grid.Column="0"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Rød}"
+            HorizontalTextAlignment="Center"
+            Placeholder="Pris pr. Liter"
+            PlaceholderColor="{StaticResource Hvid}"
+            TextChanged="Brandstofspris_TextChanged"
+            />
+        <Label
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Text="Vælg Mad"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Grøn}"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            />
+        <Label x:Name="BilRegning"
+            Grid.Column="1"
+            Grid.Row="8"
+            Text="0"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Grøn}"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            />
+        <Label x:Name="MadRegning"
+            Grid.Row="8"
+            Text="0"
+            TextColor="{StaticResource Hvid}"
+            BackgroundColor="{StaticResource Grøn}"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center"
+            />
+        <Label
+            Grid.Row="8"
+            Grid.Column="1"
+            Text="Kører-Regning"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Hvid}"
+            FontSize="15"
+               Margin="0,5,0,0"
+            />
+        <Label
+            Grid.Row="8"
+            Text="Mad-Regning"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Hvid}"
+            FontSize="15"
+               Margin="0,5,0,0"
+            />
+        <Button x:Name="Tester"
+            Grid.Row="9"
+            Text="Beløb"
+            BackgroundColor="{StaticResource Sort}"
+            />
+        <Button x:Name="Beregn"
+            Grid.Row="9"
+            Grid.Column="2"
+            Text="Beregn"
+            Clicked="næste_Clicked"
+            BackgroundColor="{StaticResource Sort}"
+            />
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="0"
+            Grid.Row="4"
+            />
+        <Picker x:Name="Burgere"
+        Title="Burgere"
+        Grid.Column="0"
+        Grid.Row="4"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="Burgere_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Hamburger 12 kr.</x:String>
+                    <x:String>Hamburgur+Menu 66 kr.</x:String>
+                    <x:String>Cheesburger 13 kr.</x:String>
+                    <x:String>Cheesburger+Menu 66 kr.</x:String>
+                    <x:String>McBacon 30 kr.</x:String>
+                    <x:String>McBacon+Menu 71 kr.</x:String>
+                    <x:String>Big-Mac 30 kr.</x:String>
+                    <x:String>Big-Mac+Menu 79 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="0"
+            Grid.Row="5"
+            />
+        <Picker x:Name="KyllingogFisk"
+        Title="Kylling og Fisk"
+        Grid.Column="0"
+        Grid.Row="5"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="KyllingogFisk_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>4-McNuggets 25 kr.</x:String>
+                    <x:String>6-McNuggets 35 kr.</x:String>
+                    <x:String>9-McNuggets 45 kr.</x:String>
+                    <x:String>9-McNuggets+Menu 82 kr.</x:String>
+                    <x:String>20-McNuggets 69 kr.</x:String>
+                    <x:String>20-McNuggets+Menu 98 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="0"
+            Grid.Row="6"
+            />
+        <Picker x:Name="Coinoffers"
+        Title="Coinoffers"
+        Grid.Column="0"
+        Grid.Row="6"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="Coinoffers_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Hamburger 12 kr.</x:String>
+                    <x:String>Hamburger+Menu 66 kr.</x:String>
+                    <x:String>CheeseBurger 13</x:String>
+                    <x:String>CheeseBurger+Menu 66 kr.</x:String>
+                    <x:String>McBacon 30 kr.</x:String>
+                    <x:String>McBacon+Menu 71 kr.</x:String>
+                    <x:String>3-STK-Chili-Cheese-Tops(Vegansk) 13 kr.</x:String>
+                    <x:String>7-STK-Chili-Cheese-Tops(Vegansk) 23 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="0"
+            Grid.Row="7"
+            />
+        <Picker x:Name="SidesogDips"
+        Title="Sides og Dips"
+        Grid.Column="0"
+        Grid.Row="7"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="SidesogDips_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Pommes-Frites 23 kr.</x:String>
+                    <x:String>Sharing-Fries 46 kr.</x:String>
+                    <x:String>Ketchup 3 kr.</x:String>
+                    <x:String>18-Chili-Cheese-Top 55 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+       
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="1"
+            Grid.Row="4"
+            />
+        <Picker x:Name="GrøntogGroft"
+        Title="Grønt og Groft"
+        Grid.Column="1"
+        Grid.Row="4"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="GrøntogGroft_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Æbler 6 kr.</x:String>
+                    <x:String>Gulerødder 6 kr.</x:String>
+                    <x:String>Måltidssalat-Kylling-Quinoa-og-Grønkål 48 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+       
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="1"
+            Grid.Row="5"
+            />
+        <Picker x:Name="Koldedrikke"
+        Title="Kolde drikke"
+        Grid.Column="1"
+        Grid.Row="5"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="Koldedrikke_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Sodavand 21 kr.</x:String>
+                    <x:String>MilkShakes 25 kr.</x:String>
+                    <x:String>Frappé-Brunkage 35 kr.</x:String>
+                    <x:String>Frappé-M.-kaffe-og-Karamel 33 kr.</x:String>
+                    <x:String>Frappé-M.-kaffe-og-Chokolade 33 kr.</x:String>
+                    <x:String>Iskaffe 29 kr.</x:String>
+                    <x:String>MineralVand 22 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="1"
+            Grid.Row="6"
+            />
+        <Picker x:Name="KaffeogKage"
+        Title="Kaffe og Kage"
+        Grid.Column="1"
+        Grid.Row="6"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="KaffeogKage_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>FilterKaffe 10 kr.</x:String>
+                    <x:String>Single-Espresso 15 kr.</x:String>
+                    <x:String>Americano 17 kr.</x:String>
+                    <x:String>Cappuccino 26 kr.</x:String>
+                    <x:String>Flat-White 22 kr.</x:String>
+                    <x:String>Latte 26 kr.</x:String>
+                    <x:String>Latte-med-Karamel/Vanilje 29 kr.</x:String>
+                    <x:String>Chai-Latte 26 kr.</x:String>
+                    <x:String>Te 20 kr.</x:String>
+                    <x:String>Mini-Donut 10 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+       
+        <Frame
+            BackgroundColor="{StaticResource Gul}"
+            Grid.Column="1"
+            Grid.Row="7"
+            />
+        <Picker x:Name="Is"
+        Title="Is"
+        Grid.Column="1"
+        Grid.Row="7"
+        HorizontalOptions="Center"
+        SelectedIndexChanged="Is_SelectedIndexChanged"
+                >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Intet 0 kr.</x:String>
+                    <x:String>Sundae 22 kt.</x:String>
+                    <x:String>Sundae-Deluxe 35 kr.</x:String>
+                    <x:String>McFlurry 29 kr.</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label x:Name="IAlt"
+            Grid.Row="9"
+            Text="I Alt"
+            HorizontalTextAlignment="Center"
+            TextColor="{StaticResource Hvid}"
+            FontSize="15"
+               Margin="0,5,0,0"
+            />
+
+
+    </Grid>
+</ContentPage>
